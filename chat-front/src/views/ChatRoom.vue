@@ -1,7 +1,18 @@
 <template>
-  <div class="inner-wrap" fluid fill-height inner-wrap>
-    <Message-List :msgs="msgDatas" class="msg-list"></Message-List>
-    <Message-From v-on:submitMessage="sendMessage" class="msg-form" ></Message-From>
+  <div
+    class="inner-wrap"
+    fluid
+    fill-height
+    inner-wrap
+  >
+    <Message-List
+      :msgs="msgDatas"
+      class="msg-list"
+    />
+    <Message-From
+      class="msg-form"
+      @submitMessage="sendMessage"
+    />
   </div>
 </template>
 
@@ -13,21 +24,21 @@ import Constant from '@/Constant';
 
 export default {
   name: 'ChatRoom',
-  data() {
-    return {
-      datas: [],
-    };
-  },
   components: {
     'Message-List': MessageList,
     'Message-From': MessageForm,
+  },
+  data () {
+    return {
+      datas: [],
+    };
   },
   computed: {
     ...mapState({
       msgDatas: state => state.socket.msgDatas,
     }),
   },
-  created() {
+  created () {
     const $ths = this;
     this.$socket.on('chat', (data) => {
       this.pushMsgData(data);
@@ -38,7 +49,7 @@ export default {
     ...mapMutations({
       pushMsgData: Constant.PUSH_MSG_DATA,
     }),
-    sendMessage(msg) {
+    sendMessage (msg) {
       this.pushMsgData({
         from: {
           name: '나',

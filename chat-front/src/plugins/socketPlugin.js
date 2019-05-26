@@ -5,7 +5,7 @@ const socket = io('http://192.168.43.177:3000');
 
 
 const SocketPlugin = {
-  install(vue) {
+  install (vue) {
     vue.mixin({
     });
 

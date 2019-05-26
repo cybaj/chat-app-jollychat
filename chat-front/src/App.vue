@@ -2,8 +2,12 @@
   <v-app>
     <v-content>
       <!-- 라우터 -->
-      <v-container fluid fill-height aacontainer>
-        <router-view></router-view>
+      <v-container
+        fluid
+        fill-height
+        aacontainer
+      >
+        <router-view />
       </v-container>
       <!-- 라우터 -->
     </v-content>
@@ -15,7 +19,7 @@ export default {
   name: 'App',
   components: {
   },
-  data() {
+  data () {
     return {
     };
   },

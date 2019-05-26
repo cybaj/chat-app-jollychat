@@ -1,6 +1,10 @@
 <template>
-  <div class="inner-wrap" fluid fill-height>
-    <Loginform-component v-on:joinSubmit="joinSubmit"></Loginform-component>
+  <div
+    class="inner-wrap"
+    fluid
+    fill-height
+  >
+    <Loginform-component @joinSubmit="joinSubmit" />
   </div>
 </template>
 
@@ -9,17 +13,17 @@ import LoginForm from '@/components/Login/LoginForm.vue';
 
 export default {
   name: 'Login',
-  data() {
-    return {
-    };
-  },
   components: {
     'Loginform-component': LoginForm,
   },
-  created() {
+  data () {
+    return {
+    };
+  },
+  created () {
   },
   methods: {
-    joinSubmit(userName) {
+    joinSubmit (userName) {
       this.$router.push(`/char-room/${userName}`);
     },
   },
