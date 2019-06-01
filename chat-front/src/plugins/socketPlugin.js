@@ -13,6 +13,7 @@ const SocketPlugin = {
       socket.emit('chat', {
         msg: $payload.msg,
         name: $payload.name,
+        bot: $payload.bot
       });
     };
 

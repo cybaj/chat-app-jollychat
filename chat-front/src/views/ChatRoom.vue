@@ -31,6 +31,7 @@ export default {
   data () {
     return {
       datas: [],
+      bot: "Sonbot"
     };
   },
   computed: {
@@ -50,15 +51,18 @@ export default {
       pushMsgData: Constant.PUSH_MSG_DATA,
     }),
     sendMessage (msg) {
+      const self = this
+      console.log(self.bot)
       this.pushMsgData({
         from: {
           name: '나',
         },
-        msg,
+        msg
       });
       this.$sendMessage({
         name: this.$route.params.username,
         msg,
+        bot: self.bot
       });
     },
   },
